@@ -1,1 +1,16 @@
 D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\MPScopeDemo.exe.config
+D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\MPScopeDemo.exe
+D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\MPScopeDemo.pdb
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MainWindow.baml
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MainWindow.g.cs
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\App.g.cs
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo_MarkupCompile.cache
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.g.resources
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.Properties.Resources.resources
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.csproj.GenerateResource.Cache
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.exe
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.pdb
+D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\AxInterop.YCSMPSCOPELib.dll
+D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\Interop.YCSMPSCOPELib.dll
+D:\Github\MPScopeDemo\MPScopeDemo\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll

@@ -14,27 +14,82 @@ namespace MPScopeDemo
         private static string mpiniFileName = "test.ini";
         private static string mpiniFilePath = "./" + mpiniFileName;
 
-        /// <summary>
-        /// 与MP通讯的类实例
-        /// </summary>
+        //MP实力对象公开入口
         public AxMPScope axMPScope1;
 
-        public string errMessage;
-
-        public static bool SetML_static(int nOffset, int val)
+        //初始化连接
+        public void InitAxMPScope()
+        {
+            this.axMPScope1 = new AxMPScope();
+            this.axMPScope1.CreateControl();
+            this.axMPScope1.ConnectFilePath = mpiniFilePath;
+        }
+        //开启连接--传入1
+        public void OpenAxMPScope()
+        {
+            this.axMPScope1.Open(1);
+        }
+        //销毁连接
+        public void DisposeAxMPScope()
+        {
+            if (this.axMPScope1 != null)
+                this.axMPScope1.Dispose();
+        }
+        //重新连接--包装上面三个--返回值：true则正确连接/false则无法连接
+        public bool ReconnectMPScope()
         {
             try
             {
-                AxMPScope axMPScope2 = new AxMPScope();
-                axMPScope2.CreateControl();
-                axMPScope2.ConnectFilePath = mpiniFilePath;
+                DisposeAxMPScope();//断开连接
+                InitAxMPScope();//初始化连接
+                OpenAxMPScope();//打开连接
 
-                axMPScope2.Open(1);
+                return true;//连接成功
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError(e.ToString());
 
-                axMPScope2.set_ML(nOffset, val);
-
-                axMPScope2.Dispose();
-
+                return false;//连接失败
+            }
+        }
+        //MB寄存器Set --BIT数据/位
+        public bool SetMB(bool value)
+        {
+            try
+            {
+                //InitAxMPScope();
+                //OpenAxMPScope();
+                axMPScope1.set_MB(0, 0, value);
+                //DisposeAxMPScope();
+                return true;
+            }
+            catch(Exception e)
+            {
+                Trace.TraceError(e.ToString());
+                return false;
+            }
+            
+            
+        }
+        //MB寄存器Get --BIT数据/位
+        public bool GetMB()
+        {
+            //InitAxMPScope();
+            //OpenAxMPScope();
+            bool value=axMPScope1.get_MB(0, 0);
+            //DisposeAxMPScope();
+            return value;
+        }
+        //ML寄存器Set
+        public bool SetML(int value)
+        {
+            try
+            {
+                //InitAxMPScope();
+                //OpenAxMPScope();
+                axMPScope1.set_ML(0, value);
+                //DisposeAxMPScope();
                 return true;
             }
             catch (Exception e)
@@ -43,21 +98,21 @@ namespace MPScopeDemo
                 return false;
             }
         }
-
-        public static bool SetMW(int nOffset, short val)
+        //ML寄存器Get
+        public int GetML()
+        {
+            //InitAxMPScope();
+            //OpenAxMPScope();
+            int value = this.axMPScope1.get_ML(0);
+            //DisposeAxMPScope();
+            return value;
+        }
+        //MW寄存器Set
+        public bool SetMW(int nOffset,short value)
         {
             try
             {
-                AxMPScope axMPScope2 = new AxMPScope(); ;
-                axMPScope2.CreateControl();
-                axMPScope2.ConnectFilePath = mpiniFilePath;
-
-                axMPScope2.Open(1);
-
-                axMPScope2.set_MW(nOffset, val);
-
-                axMPScope2.Dispose();
-
+                axMPScope1.set_MW(nOffset, value);
                 return true;
             }
             catch (Exception e)
@@ -66,31 +121,12 @@ namespace MPScopeDemo
                 return false;
             }
         }
-
-        public static bool SetBitStatus(int nOffSet, short nBitOffSet, bool isBit)
+        //MW寄存器Get
+        public short GetMW(int nOffset)
         {
-            try
-            {
-                AxMPScope axMPScope = new AxMPScope(); ;
-                axMPScope.CreateControl();
-                axMPScope.ConnectFilePath = mpiniFilePath;
-
-                axMPScope.Open(1);
-
-                //axMPScope.set_MW(10002, (short)status);
-                axMPScope.set_MB(nOffSet, nBitOffSet, isBit);
-                //axMPScope.set_MW(10000, (short)kind);
-                //axMPScope.set_MW(10001, (short)count);
-
-                axMPScope.Dispose();
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                Trace.TraceError(e.ToString());
-                return false;
-            }
+            short value = axMPScope1.get_MW(nOffset);
+            return value;
         }
+       
     }
 }

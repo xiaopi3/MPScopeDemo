@@ -30,3 +30,4 @@ D:\北京项目\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo_MarkupCompile.cach
 D:\北京项目\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.g.resources
 D:\北京项目\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.Properties.Resources.resources
 D:\北京项目\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.csproj.GenerateResource.Cache
+D:\Github\MPScopeDemo\MPScopeDemo\obj\Debug\MPScopeDemo.csprojResolveAssemblyReference.cache

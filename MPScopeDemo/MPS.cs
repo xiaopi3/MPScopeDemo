@@ -14,6 +14,15 @@ namespace MPScopeDemo
         private static string mpiniFileName = "test.ini";
         private static string mpiniFilePath = "./" + mpiniFileName;
 
+        /// <summary>
+        /// 开启MP配置界面，同时阻塞现有进程
+        /// </summary>
+        public void OpenConfigPanelBlocked()
+        {
+            Process iniSetProces = Process.Start(yeCommUtilPath, mpiniFileName);
+            iniSetProces.WaitForExit();
+        }
+
         //MP实力对象公开入口
         public AxMPScope axMPScope1;
 

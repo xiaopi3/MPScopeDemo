@@ -26,7 +26,7 @@ namespace MPScopeDemo
         MPS mps = new MPS();
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();//会创建连接实例
             if (mps.ReconnectMPScope())
             {
                 this.Title = "连接成功";
@@ -51,6 +51,19 @@ namespace MPScopeDemo
             short args2 = mps.GetMW(1001);
             G_MW1000.Text = args1.ToString();
             G_MW1001.Text = args2.ToString();
+        }
+        //启动MPS配置程序--会将配置写入test.int中
+        private void bt_Click_Setting(object sender, RoutedEventArgs e)
+        {
+            mps.OpenConfigPanelBlocked();
+            if (mps.ReconnectMPScope())
+            {
+                this.Title = "连接成功";
+            }
+            else
+            {
+                this.Title = "连接失败";
+            }
         }
     }
 }
